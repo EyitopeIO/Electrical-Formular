@@ -40,7 +40,7 @@ def main():
         if len(parameters) == 2: #if no upper or and lower limit specified
             parameters.append(0) #for lower limit
             parameters.append(0) #for upper limit
-        if len(parameters) == 3: #if not upper limit specified
+        elif len(parameters) == 3: #if not upper limit specified
             parameters.append(0) #for upper limit
     
         print(parameters)
