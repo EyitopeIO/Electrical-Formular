@@ -10,7 +10,12 @@ This python module determines the ratio r2 / (r1 + r2) in a voltage divider form
 import converter
 
 
-def ratio(v_in, v_out, l_limit, u_limit):
+def ratio(v_in, v_out, l_limit, u_limit): 
+ """
+ 1. Perhaps forlarge values of limit, the limits could be split to smaller numbers run in separate threads or processors, 
+ then all their output combined.
+  2. I could check for standard resistor values and only print those closest to them instead of a whole lot of pairs
+  """
     answer_to_return = []
     if u_limit == 0: #if no upper limit is specified, default to 100k
         _ulimit = 33000 
