@@ -33,7 +33,7 @@ def ratio(v_in, v_out, l_limit, u_limit):
 
 
 def main():
-    # First item is input voltage
+    # First item is input voltage.
     # Second parameter is output voltage
     # Third parameter is lower limit of resistor
     # Fourth parameter is upper limit of resistance
