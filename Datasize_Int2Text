@@ -1,0 +1,25 @@
+#pbytes = print bytes
+
+#Pythpn program to convert bytes to kilobytes, megabytes, or gigabytes
+
+kilo = 1024
+mega = 1048576 #1024 kilobytes
+giga = 1073741824
+tera = 1099511627776
+
+
+
+def convert(value):
+    if value<kilo: #Less than 1KB
+        return str(round(value,1)) + 'B'
+    elif value>kilo or value==kilo: #Greater thn 1KB
+            if value<mega:
+                return str(round(value/kilo,1)) + 'KB'#Less than 1MB,
+            elif value>mega or value == mega:
+                if value<giga:
+                    return str(round(value/mega,1)) + 'MB'#Greater than 1MB
+                elif value>giga  or value==giga:
+                    if value<tera:
+                        return str(round(value/giga,1)) + 'GB'
+                    elif value>tera or value==tera:
+                        return str(round(value/tera,1)) + 'TB'
