@@ -1,0 +1,19 @@
+"""This changes the letters in  word to its numerical position in the English alphabets,
+then sums it up. This is a solution to a past question for a  CSC202 exam done for some students."""
+
+
+alphabets = ' abcdefghijklmnopqrstuvwxyz'
+u_alphabets = alphabets.upper()
+
+def convert_and_add (data): #data must be a string
+    total = 0
+    count = 0
+    for i in data:
+        if i == i.upper():
+            print(i, "results to", u_alphabets.find(i))
+            total = total + u_alphabets.find(i)
+        else:
+            total = total + alphabets.find(i)
+        count = count + 1
+    return total
+        
