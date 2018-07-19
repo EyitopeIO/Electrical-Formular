@@ -1,5 +1,8 @@
-"""This changes the letters in  word to its numerical position in the English alphabets,
-then sums it up. This is a solution to a past question for a  CSC202 exam done for some students."""
+""" 
+This changes the letters in  word to its numerical position in the English alphabets,
+then sums it up. This is a solution to a past question for a  CSC202 exam done for some students.
+
+"""
 
 
 alphabets = ' abcdefghijklmnopqrstuvwxyz'
