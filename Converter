@@ -1,6 +1,9 @@
 #pbytes = print bytes
 
-#Pythpn program to convert bytes to kilobytes, megabytes, or gigabytes
+"""
+What this does is to write a given integer representing memory size to a shprt hand text 
+
+"""
 
 kilo = 1024
 mega = 1048576 #1024 kilobytes
