@@ -1,4 +1,11 @@
-//Ayo'ss code.
+/*
+* THE PROBLEM
+* Given a string in the format ?ab...z-ab...z-ab...z! where the letters represent any character, the
+* program is to fish out the numbers between the hyphen. If a question mark doesn't start and an exclamation mark
+* doesn't end the string, then show an error
+*
+*/
+
 #include <stdio.h>
 #include <strings.h>
 
