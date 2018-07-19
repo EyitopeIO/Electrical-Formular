@@ -1,0 +1,36 @@
+/*
+* My colleague, Ayo, gave me an idea of a simpler way to do it. 
+* My sure was overkill!
+*/
+
+
+#include<stdio.h>
+#include<string.h>
+
+char user_input[100];
+char digit[100];
+
+
+int main(void) {
+	int i, j;
+	while(1) {
+		printf("\nEnter: ");
+		scanf("%s", user_input);
+		if ( user_input[0] == '?' && user_input[strlen(user_input)-1] == '!') {
+			for(i = 0, j = 0; i < strlen(user_input); i++) {
+				if(user_input[i] == '-') {
+					i++;
+					while(user_input[i] != '-') {
+						digit[j] = user_input[i];
+						j++;
+						i++;
+					}
+					printf("\n%s", digit);
+				}
+			}
+		}
+		else {
+			printf("\nERROR. ");
+		}
+	}
+}
