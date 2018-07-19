@@ -5,6 +5,7 @@
 char* load_desired_array(char* array);
 char first_character_check(char* array);
 int find_exclamation_mark(char* array);
+void hyphen_check(char* array);
 char* fetch_the_needed_number(char* array);
 
 char user_input[100];
@@ -44,36 +45,60 @@ int main (void) {
 				puts("\nERROR >> start character not found.");
 			}
 		}
-		printf("\nDIGIT: %s\n", fetch_the_needed_number(user_input));
+		hyphen_check(user_input);
+		if (pass_hyphen_present) {
+			printf("\nDIGIT: %s\n", fetch_the_needed_number(user_input));
+		}
+		else {
+			printf("\nInvalid data");
+		}
 	}
 }
 
 
-char* fetch_the_needed_number (char* array) {
-	static char the_3_digit_figure[3];
-	int index_hyphen_start, number_hyphen;
-	int lenght_of_array = strlen(array);
-	int i;
-	for( i=0, number_hyphen=0; i < strlen(array) - 1; i++) {
+void hyphen_check(char* array) {
+	int number_hyphen, i;
+	for(i=0, number_hyphen=0; i < strlen(array) - 1; i++) {
 		if (array[i] == '-') {
 			number_hyphen++;
-			//printf("\nnumber_hyphen: %d");
-			if (number_hyphen == 1) {
-				index_hyphen_start = i;
-				//printf("\nnumber_hyphen is %d", number_hyphen);
-				//printf("\nindex_hyphen_start: %d", index_hyphen_start);
-			}
-		}
-		if (number_hyphen == 2 && i > index_hyphen_start) {
-			pass_hyphen_present = 1;
-			the_3_digit_figure[0] = array[index_hyphen_start+1];
-			the_3_digit_figure[1] = array[index_hyphen_start+2];
-			the_3_digit_figure[2] = array[index_hyphen_start+3];
-			//printf("\nThe number is: %s", the_3_digit_figure);
-			break;
 		}
 	}
-	return the_3_digit_figure;
+	if (number_hyphen == 2) {
+		pass_hyphen_present = 1;
+	}
+	else {
+		pass_hyphen_present = 0;
+	}
+}
+
+char* fetch_the_needed_number (char* array) {
+	static char the_digits[3];
+	int number_hyphen;
+	int lenght_of_array = strlen(array);
+	int i;
+	int index_storage_point = 0;
+	
+	if(pass_hyphen_present) {
+		for( i=0, number_hyphen=0; i < strlen(array) - 1; i++) {
+			if (array[i] == '-') {
+				//printf("\nSeen hyphen");
+				i++;
+				while(1) {
+					if(array[i] == '-') {
+						break;
+					}
+					//printf("\narray[%d] = %c", i, array[i]);
+					the_digits[index_storage_point] = array[i];
+					//printf("\nthe_digits[%d] = %c", index_storage_point,\
+					the_digits[index_storage_point]);
+					index_storage_point++;
+					i++;
+				}
+				break;
+			}
+		}
+		return the_digits;
+	}
 }
 		
 		
